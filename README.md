@@ -5,7 +5,7 @@ class Main {
     Scanner leitor = new Scanner(System.in);
       
     System.out.println("Escolha o modelo: cubo, cilindro, cone, esfera.");
-    String figura = leitor.nextLine();//FIGURA
+    String figura = leitor.nextLine();
     if (figura.equals("cubo")){
       System.out.println("area ou volume?");
       String formula = leitor.nextLine();
@@ -15,7 +15,7 @@ class Main {
         double potencia = Math.pow(a, 2);
         double area_cubo = 6 * potencia;
         System.out.println("Área do cubo: " + area_cubo);
-      }else{//CALCULAR VOLUME DO CUBO
+      }else{
       System.out.println("qual é o valor da aresta?");
       float a = leitor.nextInt();
       double potencia = Math.pow(a, 3);
@@ -23,10 +23,10 @@ class Main {
       System.out.println("Volume do cubo: " + volume_cubo);
       }
 
-    }else if (figura.equals("cilindro")){//CALCULAR O CILINDRO
+    }else if (figura.equals("cilindro")){
       System.out.println("area ou volume?");
       String formula = leitor.nextLine();
-      if (formula.equals("area")){//CALCULAR A ÁREA DO CILINDRO
+      if (formula.equals("area")){
         System.out.println("Qual é o valor do raio da base?");
         float r = leitor.nextInt();
         System.out.println("Qual é o valor da altura do cilindro?");
@@ -35,7 +35,7 @@ class Main {
         double area_base = ((Math.PI) * r * r);
         double area_cilindro = (area_lado + area_base);
         System.out.println("A área do cilindro é: " + area_cilindro);
-      }else{//CALCULAR O VOLUME DO CILINDRO
+      }else{
         System.out.println("Qual é o valor do raio da base?");
         float r = leitor.nextInt();
         System.out.println("qual é a altura do cilindro?");
@@ -45,16 +45,16 @@ class Main {
         System.out.println("Volume do cilindro: " + volume_cilindro);
       }
 
-    }else if (figura.equals("esfera")){//ESCOLHEU A ESFERA
+    }else if (figura.equals("esfera")){
       System.out.println("area ou volume?");
       String formula = leitor.nextLine();
-      if(formula.equals("area")){//ESCOLHEU A ÁREA
+      if(formula.equals("area")){
         System.out.println("qual é o valor do raio?");
         float r = leitor.nextInt();
         double area_esfera = (4 * (Math.PI) * r * r);
         System.out.println("Área da esfera: " + area_esfera);
         
-      }else{//ESCOLHEU O VOLUME
+      }else{
         System.out.println("Qual é o valor do raio?");
         float r = leitor.nextInt();
         double volume_esfera = (4/3 * (Math.PI) * r * r * r);
