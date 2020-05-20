@@ -1,0 +1,111 @@
+public class Cargo {
+
+    private String nome;
+    private String descricao;
+    private double pisoSalarial;
+    private double cargaHoraria;
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    public void setPisoSalarial(double pisoSalarial) {
+        this.pisoSalarial = pisoSalarial;
+    }
+    public void setCargaHoraria(double cargaHoraria) {
+        this.cargaHoraria = cargaHoraria;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public String getDescricao() {
+        return descricao;
+    }
+    public double getPisoSalarial() {
+        return pisoSalarial;
+    }
+    public double getCargaHoraria() {
+        return cargaHoraria;
+    }
+}
+
+
+
+public class maincargo {
+    
+    public static void main(String[] args) {
+        
+        
+        Cargo p = new Cargo();
+        
+        p.setNome("Matheus Bez Batti");
+        p.setDescricao("Socio Empresarial");
+        p.setPisoSalarial(5000000.00);
+        p.setCargaHoraria(11.11);
+        
+        System.out.println("Meu Nome é "+ p.getNome()+ ", trabalho como " 
+        + p.getDescricao()+ ", meu piso salarial é de "+ p.getPisoSalarial()+
+        " e o valor que ganho por carga horaria é de $" + p.getCargaHoraria()+ " horas");
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Pessoa {
+
+    private String nome;
+    private int idade;
+    private String endereco;
+    private int CEP;
+    private String nomePai;
+    private String nomeMae;
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    public void setEndereco (String endereco) {
+        this.endereco = endereco;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public int getIdade() {
+        return idade;
+    }    
+    public String getEndereco() {
+        return endereco;    }
+}
+
+
+
+public class mainpessoa {
+
+    public static void main(String[] args){
+
+    Pessoa p = new Pessoa();
+    
+    p.setNome ("Matheus Bez Batti");
+    p.setIdade(19);
+    p.setEndereco("Joinville/SC");
+    
+    System.out.println("Meu nome é "+ p.getNome() + "e tenho "+p.getIdade()+ " e moro em "+ p.getEndereco());
+
+}
+}
