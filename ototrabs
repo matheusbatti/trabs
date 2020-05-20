@@ -43,7 +43,7 @@ public class maincargo {
         p.setNome("Matheus Bez Batti");
         p.setDescricao("Socio Empresarial");
         p.setPisoSalarial(5000000.00);
-        p.setCargaHoraria(11.11);
+        p.setCargaHoraria(5.5);
         
         System.out.println("Meu Nome é "+ p.getNome()+ ", trabalho como " 
         + p.getDescricao()+ ", meu piso salarial é de "+ p.getPisoSalarial()+
