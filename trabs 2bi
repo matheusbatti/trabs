@@ -1,0 +1,39 @@
+public class Produto{
+    private String nome;
+    private int valor;
+
+    public Produto(String nome){
+      this.nome = nome;
+    }
+    public String toString() {
+      return "Produto{" + "Nome ='" + nome + '\'' +'}';
+    }
+    public boolean equals(Object i) {
+      if (this == i) return true;
+      if (i == null || getClass() != i.getClass())return false;
+      Produto produto = (Produto) i;
+      return nome.equals(produto.nome);
+    }
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    public int getValor() {
+        return valor;
+    }
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+}
+
+########################################################
+
+public class Main {
+   public static void main(String[] args){
+      produto c = new produto("Carro");
+      produto m = new produto("Moto");
+        
+      System.out.println(c.equals(m));
+      System.out.println(c.toString());
+      System.out.println(m.toString());
+    }
+}
