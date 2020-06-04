@@ -8,15 +8,20 @@ class Main {
     Size small = Size.S;
     Size large = Size.L;
     Size medium = Size.M;
+    
     System.out.println("Size 1: " + small.getSize());
     System.out.println("Size 2: " + large.getSize());
 
     Shirt c1 = new Shirt( "White", "Adidas, "+ medium.getSize(), 120);
+    
     Shirt c2 = new Shirt("Red", "Supreme, "+ small.getSize(), 130);
+    
     Shirt c3 = new Shirt("Black", "Off White, "+ large.getSize(), 110);
 
     System.out.println(c1);
+    
     System.out.println(c2);
+    
     System.out.println(c3);    
 
   }
