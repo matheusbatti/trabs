@@ -1,0 +1,118 @@
+class Main {
+  public static void main(String[] args) {
+    Months month = Months.January;
+
+    System.out.println(month.getPrice());
+    System.out.println(Months.January);
+
+    Size small = Size.S;
+    Size large = Size.L;
+    Size medium = Size.M;
+    System.out.println("Size 1: " + small.getSize());
+    System.out.println("Size 2: " + large.getSize());
+
+    Shirt c1 = new Shirt( "White", "Adidas, "+ medium.getSize(), 120);
+    Shirt c2 = new Shirt("Red", "Supreme, "+ small.getSize(), 130);
+    Shirt c3 = new Shirt("Black", "Off White, "+ large.getSize(), 110);
+
+    System.out.println(c1);
+    System.out.println(c2);
+    System.out.println(c3);    
+
+  }
+}
+
+
+
+
+
+
+public enum Months{
+  January(1),
+  February(2),
+  March(3),
+  April(4),
+  May(5),
+  June(6),
+  July(7),
+  August(8),
+  September(9),
+  October(10),
+  November(11),
+  December(12);
+
+  private int price;
+  private Months(int price){
+    this.price = price;
+  }
+  public int getPrice(){
+    return price;
+  }
+}
+
+
+
+
+
+
+public class Shirt{
+  private String color;
+  private String brand;
+  private int price;
+
+  public Shirt(String color, String brand, int price){
+    setColor (color);
+    setBrand(brand);
+    setPrice(price);
+  }
+  public String getColor(){
+    return color;
+  }
+  public void setColor(String color){
+    this.color = color;
+  }
+  public String getMarca(){
+    return brand;
+  }
+  public void setBrand(String brand){
+    this.brand = brand;
+  }
+  public int getPrice(){
+    return price;
+  }
+  public void setPrice(int price){
+    this.price = price;
+  }
+  public String toString(){
+    return "Specification: "+color+", "+brand+", "+price;
+  }
+  public boolean equals(Object o){
+    if(this == o) return true;
+    if (o instanceof Shirt){
+      Shirt p = (Shirt) o;
+      return this.color == p.color && this.brand == p.brand && this.price == p.price;
+    }
+    return false;
+  }
+}
+
+
+
+
+
+public enum Size{
+  XS("XS"),
+  S("S"),
+  M("M"),
+  L("L"),
+  XL("XL");
+
+  private String size;
+
+  private Size (String size){
+    this.size = size;
+  }
+  public String getSize(){
+    return size;
+  }
+}
