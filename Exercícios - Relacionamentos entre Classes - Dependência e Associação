@@ -1,0 +1,156 @@
+class Main {
+  public static void main(String[] args) {
+
+    Autor tolkien = new Autor("J. R. R. Tolkien", "Oliveira");
+    Editora estante = new Editora("Sua estante distante", "Joinville");
+    Livro hobbit = criarLivros.getInstance().criarLivroNovo("O Hobbit", 310, 40.72, tolkien,estante);
+
+    verLivro ver = new verLivro();
+    ver.apresentarLivro(hobbit);
+  }
+}
+
+
+
+
+public class Autor {
+
+  private String nome;
+  private String sobrenome;
+
+  public Autor() {}
+
+  public Autor(String nome, String sobrenome) {
+    this.nome = nome;
+    this.sobrenome = sobrenome; 
+  }
+  public String getNome() {
+    return nome;
+  }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+  public String getSobrenome() {
+    return sobrenome;
+  }
+  public void setSobrenome(String sobrenome) {
+    this.sobrenome = sobrenome;
+  }
+}
+
+
+
+
+public class Editora {
+
+  private String nome;
+  private String cidade;
+
+  public Editora() {}
+
+  public Editora (String nome, String cidade) {
+    this.nome = nome;
+    this.cidade = cidade;
+  }
+  public String getNome() {
+    return nome;
+  }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+  public String getCidade() {
+    return cidade;
+  }
+  public void setCidade(String cidade) {
+    this.cidade = cidade;
+  }
+}
+
+
+
+
+public class fabricaLivros {
+
+  private static fabricaLivros instance;
+
+  private fabricaLivros() {}
+  public static fabricaLivros getInstance() {
+    if(instance == null) {
+      instance = new fabricaLivros();
+    }
+    return instance;
+  }
+  public Livro fabricaLivroNovo(String nome, int paginas, double valor, Autor autor, Editora editora) {
+    return new Livro (nome, paginas, valor, autor, editora);
+    }
+}
+
+
+
+
+public class Livro {
+
+  private String nome;
+  private int paginas;
+  private double valor;
+  private Autor autor;
+  private Editora editora;
+
+  public Livro() {}
+
+  public Livro(String nome, int paginas, double valor, Autor autor, Editora editora) {
+    this.nome = nome;
+    this.paginas = paginas;
+    this.valor = valor;
+    this.autor = autor;
+    this.editora = editora;
+  }
+  public String getNome() {
+    return nome;
+  }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+  public int getPaginas() {
+    return paginas;
+  }
+  public void setPaginas(int paginas) {
+    this.paginas = paginas;
+  }
+  public double getValor() {
+    return valor;
+  }
+  public void setValor(double valor) {
+    this.valor = valor;
+  }
+  public Autor getAutor() {
+    return autor;
+  }
+  public void setAutor(Autor autor) {
+    this.autor = autor;
+  }
+  public Editora getEditora() {
+    return editora;
+  }
+  public void setEditora(Editora editora) {
+    this.editora = editora;
+  }
+}
+
+
+
+
+public class verLivro {
+
+  public void apresentarLivro(Livro hobbit) {
+    System.out.println("|----------------------------------|");
+    System.out.println("|              LIVRO               |");
+    System.out.println("|----------------------------------|");
+    System.out.println("| Título: "+ hobbit.getNome());
+    System.out.println("| Autor:  "+ hobbit.getAutor().getNome());
+    System.out.println("| Editora: "+ hobbit.getEditora().getNome());
+    System.out.println("| Páginas: "+ hobbit.getPaginas());
+    System.out.println("| Valor: "+ hobbit.getValor());
+    System.out.println("|----------------------------------|");
+  }
+}
