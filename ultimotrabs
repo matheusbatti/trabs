@@ -1,0 +1,121 @@
+package br.univille.poo.logger;
+
+import java.io.File;
+import java.io.FileWriter;
+
+
+class Main {
+    public static void main(String[] args) {
+    	
+    	
+    	Logger   a = loggerfactory.getInstance().createconsolelogger();
+        Logger b =loggerfactory.getInstance().createfilelogger();
+         
+        
+       a.mensagem("começo");
+       b.mensagem("final");
+        
+    }
+    
+    
+}
+
+
+package br.univille.poo.logger;
+
+class consolelogger implements logger{
+
+	@Override
+	public void mensagem(String mensagem) {
+		 System.out.println(mensagem);
+		
+	}
+
+
+
+}
+
+
+
+package br.univille.poo.logger;
+
+import java.io.File;
+import java.io.FileWriter;
+
+class filelogger implements logger{
+
+	@Override
+	public void mensagem(String mensagem) {
+		try{
+	 		
+	 	    File arquivo = new File("documento.doc");
+	 	    FileWriter writer = new FileWriter(arquivo,true);
+	 	    writer.write(mensagem);
+	 	    writer.close();
+	 	}catch(Exception e){
+	 		
+	 	    e.printStackTrace();
+	 	}
+		
+	}
+	
+	
+ 
+	 }
+   
+   
+
+package br.univille.poo.logger;
+
+public interface logger {
+	
+	public void mensagem(String mensagem);
+	
+
+}
+
+
+package br.univille.poo.logger;
+
+public abstract class loggerfactory {
+	
+	 abstract logger createConsoleLogger();
+	 
+	 abstract logger createFileLogger();
+	
+	
+	 protected loggerfactory(){};
+	 
+	 private static loggerfactory instance ;
+	
+	   
+	    public static  loggerfactory getInstance()
+	    {
+	        if(instance==null)
+	        {
+	            instance= new loggerfactoryconcreta();
+	        }
+	        return instance;
+	    }
+	   
+	}
+	 
+   
+   
+ package br.univille.poo.logger;
+
+ class loggerfactoryconcreta extends loggerfactory {
+
+	@Override
+	public logger createconsolelogger() {
+		
+		return  new consolelogger();
+	}
+
+	@Override
+	public logger createfilelogger() {
+		
+		return new filelogger();
+	}
+
+}
