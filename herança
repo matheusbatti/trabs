@@ -1,0 +1,109 @@
+package br.univille.poo.trabalho.heranca;
+
+public class Main {
+
+    public static void main(String args[]){
+        Sequencia sequencia = new SequenciaCubica();
+
+        testarSequencia(sequencia);
+
+        sequencia.reiniciarSequencia();
+
+        testarSequencia(sequencia);
+
+    }
+
+    public static void testarSequencia(Sequencia sequencia){
+        System.out.println("----------------------------------------------");
+        System.out.println("Número atual : "+ sequencia.getNumeroAtual());
+        System.out.println("Próximo número : "+ sequencia.proximoNumero());
+        System.out.println("Próximo número : "+ sequencia.proximoNumero());
+        System.out.println("Próximo número : "+ sequencia.proximoNumero());
+        System.out.println("Próximo número : "+ sequencia.proximoNumero());
+        System.out.println("Qtde de números gerados : "+sequencia.getQuantidadeDeNumerosGerados());
+
+    }
+
+}
+  
+  
+package br.univille.poo.trabalho.heranca;
+
+public class Sequencia {
+
+    private int numeroAtual;
+    private int quantidadeDeNumerosGerados;
+    private int numeroInicial;
+
+    public Sequencia(){
+        quantidadeDeNumerosGerados = 1;
+        numeroInicial = 1;
+        numeroAtual = numeroInicial;
+    }
+
+    public Sequencia(int numeroInicial){
+        this.numeroInicial = numeroInicial;
+        numeroAtual = numeroInicial;
+    }
+
+    public int getNumeroAtual(){
+        return numeroAtual;
+    }
+
+    public int getQuantidadeDeNumerosGerados(){
+        return quantidadeDeNumerosGerados;
+    }
+
+    public int proximoNumero(){
+        numeroAtual++;
+        incremetarQuantidadeDeNumerosGerados();
+        return numeroAtual;
+    }
+
+    public void reiniciarSequencia(){
+        numeroAtual = numeroInicial;
+        quantidadeDeNumerosGerados = 1;
+    }
+
+    protected void incremetarQuantidadeDeNumerosGerados(){
+        quantidadeDeNumerosGerados++;
+    }
+
+    protected void setNumeroAtual(int numeroAtual){
+        this.numeroAtual = numeroAtual;
+    }
+
+}
+
+
+package br.univille.poo.trabalho.heranca;
+
+public class SequenciaCubica extends Sequencia {
+
+    @Override
+    public int proximoNumero(){
+        incremetarQuantidadeDeNumerosGerados();
+        int i = getQuantidadeDeNumerosGerados()
+                * getQuantidadeDeNumerosGerados()
+                * getQuantidadeDeNumerosGerados();
+        setNumeroAtual(i);
+        return getNumeroAtual();
+    }
+
+}
+
+
+package br.univille.poo.trabalho.heranca;
+
+public class SequenciaQuadratica extends Sequencia {
+
+    @Override
+    public int proximoNumero(){
+        incremetarQuantidadeDeNumerosGerados();
+        int i = getQuantidadeDeNumerosGerados() * getQuantidadeDeNumerosGerados();
+        setNumeroAtual(i);
+        return getNumeroAtual();
+    }
+
+}
+
